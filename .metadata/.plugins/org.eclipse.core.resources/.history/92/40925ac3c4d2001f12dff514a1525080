@@ -1,0 +1,27 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-10-08
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+uint32_t mult(uint16_t a, uint16_t b) {
+	return a*b;
+}
+
+
+int main(void) {
+
+	if(mult(123,1765) > 100) PORTB = 255;
+	else PORB = 0;
+
+	while(1) {
+
+	}
+}

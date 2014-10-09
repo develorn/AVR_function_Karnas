@@ -1,0 +1,39 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../SDCARD/option/cc932.c \
+../SDCARD/option/cc936.c \
+../SDCARD/option/cc949.c \
+../SDCARD/option/cc950.c \
+../SDCARD/option/ccsbcs.c \
+../SDCARD/option/syscall.c 
+
+OBJS += \
+./SDCARD/option/cc932.o \
+./SDCARD/option/cc936.o \
+./SDCARD/option/cc949.o \
+./SDCARD/option/cc950.o \
+./SDCARD/option/ccsbcs.o \
+./SDCARD/option/syscall.o 
+
+C_DEPS += \
+./SDCARD/option/cc932.d \
+./SDCARD/option/cc936.d \
+./SDCARD/option/cc949.d \
+./SDCARD/option/cc950.d \
+./SDCARD/option/ccsbcs.d \
+./SDCARD/option/syscall.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+SDCARD/option/%.o: ../SDCARD/option/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=11059200UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

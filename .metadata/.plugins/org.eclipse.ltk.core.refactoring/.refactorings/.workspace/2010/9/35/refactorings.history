@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;07_UART_kalibracja&apos; to &apos;07_UART&apos;" description="Rename resource &apos;07_UART_kalibracja&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/07_UART_kalibracja" name="07_UART" stamp="1283691700652" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;07_UART/UART&apos;" deleteContents="false" description="Delete resource &apos;07_UART/UART&apos;" element1="/07_UART/UART" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1283693087763"/>
+</session>

@@ -1,0 +1,90 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+LSS += \
+18_RegulacjaMocy230V.lss \
+
+FLASH_IMAGE += \
+18_RegulacjaMocy230V.hex \
+
+EEPROM_IMAGE += \
+18_RegulacjaMocy230V.eep \
+
+SIZEDUMMY += \
+sizedummy \
+
+
+# All Target
+all: 18_RegulacjaMocy230V.elf secondary-outputs
+
+# Tool invocations
+18_RegulacjaMocy230V.elf: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: AVR C Linker'
+	avr-gcc -Wl,-Map,18_RegulacjaMocy230V.map -mmcu=atmega8 -o"18_RegulacjaMocy230V.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+18_RegulacjaMocy230V.lss: 18_RegulacjaMocy230V.elf
+	@echo 'Invoking: AVR Create Extended Listing'
+	-avr-objdump -h -S 18_RegulacjaMocy230V.elf  >"18_RegulacjaMocy230V.lss"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+18_RegulacjaMocy230V.hex: 18_RegulacjaMocy230V.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -O ihex 18_RegulacjaMocy230V.elf  "18_RegulacjaMocy230V.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+18_RegulacjaMocy230V.eep: 18_RegulacjaMocy230V.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex 18_RegulacjaMocy230V.elf  "18_RegulacjaMocy230V.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+sizedummy: 18_RegulacjaMocy230V.elf
+	@echo 'Invoking: Print Size'
+	-avr-size --format=avr --mcu=atmega8 18_RegulacjaMocy230V.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) 18_RegulacjaMocy230V.elf
+	-@echo ' '
+
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets

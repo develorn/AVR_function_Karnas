@@ -1,0 +1,343 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-09-27
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+#include "U:/_____FOLDER_SYNCHRO_MK/kursy/19_ProjektWielozadaniowy/common.h"
+#include "LCD/lcd44780.h"
+#include "1Wire/ds18x20.h"
+#include "d_led.h"
+#include "I2C_TWI/i2c_twi.h"
+#include "MKUART/mkuart.h"
+#include "IR_DECODE/ir_decode.h"
+
+
+#define LED1 (1<<PD0)
+#define LED2 (1<<PD1)
+
+#define LED1_ON PORTD &= ~LED1
+#define LED1_OFF PORTD |= LED1
+#define LED1_TOG PORTD ^= LED1
+#define LED2_ON PORTD &= ~LED2
+#define LED2_OFF PORTD |= LED2
+#define LED2_TOG PORTD ^= LED2
+#define LED_DDR DDRD
+
+#define KL1 (1<<PD3)
+#define KL2 (1<<PD4)
+#define KL3 (1<<PD5)
+#define KL4 (1<<PD7)
+#define KL_DDR DDRD
+#define KL_PORT PORTD
+
+
+#define DEFAULT 0
+
+#define PCF8583_ADDR 0xA2
+
+uint8_t stopien[] = {12,18,18,12,32,32,32,32};
+
+volatile uint16_t Timer1, Timer2, Timer3, Timer4;	/* timery programowe 100Hz */
+
+uint8_t subzero, cel, cel_fract_bits;
+uint8_t czujniki_cnt;		/* iloœæ czujników na magistrali */
+
+volatile uint8_t int0_flag=1;	// flaga zmieniana w przerwaniu i sprawdzana w pêtli g³ównej
+
+uint8_t led1_stop, led2_stop, led1_speed=100, led2_speed=25;
+
+
+/************** funkcja SuperDebounce do obs³ugi pojedynczych klawiszy ***************/
+void SuperDebounce(uint8_t * key_state, volatile uint8_t *KPIN,
+		uint8_t key_mask, uint16_t rep_time, uint16_t rep_wait,
+		void (*push_proc)(void), void (*rep_proc)(void) );
+
+void display_temp(uint8_t x);
+// konwersja liczby dziesiêtnej na BCD
+uint8_t dec2bcd(uint8_t dec);
+// konwersja liczby BCD na dziesiêtn¹
+uint8_t bcd2dec(uint8_t bcd);
+
+void kl1_press(void) {
+	led1_stop ^= 1;
+}
+
+void kl1_rep(void) {
+	led1_speed++;
+}
+
+void kl2_press(void) {
+	led2_stop ^= 1;
+}
+
+void kl2_rep(void) {
+	led2_speed++;
+}
+
+int main(void) {
+
+	DDRA 	|= (1<<PA7);
+	PORTA 	|= (1<<PA7); /* podœwietlenie wyœwietlacza LCD */
+
+	KL_DDR 	|= KL1|KL2|KL3|KL4;
+	KL_PORT |= KL1|KL2|KL3|KL4;
+
+	LED_DDR |= LED1|LED2;
+	LED1_ON;
+	LED2_ON;
+
+	lcd_init();//===============> trzeba by³o skonfigurowaæ inne piny i wywaliæ definicje PORT(x) do common.h
+	lcd_str("Start...");
+	lcd_defchar(0x80,stopien);
+
+	/* Timer2 – inicjalizacja przerwania co 10ms */
+	TCCR2 	= (1<<WGM21);			// tryb pracy CTC
+	TCCR2 	= (1<<CS22)|(1<<CS20);	// preskaler = 1024
+	OCR2 	= 108;					// przerwanie porównania co 10ms (100Hz)
+	TIMSK 	= (1<<OCIE2);			// Odblokowanie przerwania CompareMatch
+
+	// Przerwanie INT0
+	MCUCR |= (1<<ISC01);	// wyzwalanie zboczem opadaj¹cym
+	GICR |= (1<<INT0);		// odblokowanie przerwania
+	PORTD |= (1<<PD2);		// podci¹gniêcie pinu INT0 do VCC
+
+	d_led_init(); //===========> trzeba by³o zmieniæ piny, nowa MASKA_ANODY, i operacja ( ~licznik<<4 ...  )!!!!!
+					// dodaæ znak kreski w znakach i makro KRESKA w d_led.h
+	cy1	= KRESKA;
+	cy2 = KRESKA;
+	cy3 = KRESKA;
+	cy4 = KRESKA;
+
+	ir_init();
+
+	USART_Init();
+
+	sei();
+
+	/* sprawdzamy ile czujników DS18xxx widocznych jest na magistrali */
+	czujniki_cnt = search_sensors();
+	DS18X20_start_meas( DS18X20_POWER_EXTERN, NULL );
+
+	/* czekamy 750ms na dokonanie konwersji przez pod³¹czone czujniki */
+	_delay_ms(1500);
+
+	lcd_cls();
+
+	/* dokonujemy odczytu temperatury z pierwszego czujnika o ile zosta³ wykryty */
+	/* wyœwietlamy temperaturê gdy czujnik wykryty */
+	if( DS18X20_OK == DS18X20_read_meas(gSensorIDs[0], &subzero, &cel, &cel_fract_bits) ) display_temp(0);
+	else {
+		lcd_locate(1,0);
+		lcd_str(" error ");	/* wyœwietlamy informacjê o b³êdzie jeœli np brak czujnika lub b³¹d odczytu */
+	}
+
+	// definiujemy sobie dla polepszenia czytelnoœci programu typ wyliczeniowy
+	// wskazuj¹cy nam póŸniej na odpowiednie indeksy w tablicy (buforze)
+	enum {ss=1, mm, hh};
+	uint8_t bufor[4];		// rezerwacja bufora 4 bajty
+	uint8_t sekundy, minuty, godziny;
+
+
+	// Ustawianie czasu na godzinê: 18:34:27
+	/*
+	bufor[0] = 0;			// setne czêœci sekundy
+	bufor[1] = dec2bcd(00);	// sekundy
+	bufor[2] = dec2bcd(22);	// minuty
+	bufor[3] = dec2bcd(00);	// godziny
+	// zapis 4 bajtów z bufora pod adres 0x01 w pamiêci RAM naszego RTC
+	TWI_write_buf( PCF8583_ADDR, 0x01, 4, bufor );
+	*/
+
+	uint8_t tcl=0, licznik1=0;
+	uint8_t k1, k2;
+
+	while(1) {
+
+		SuperDebounce(&k1, &PIND, KL1, 20, 500, kl1_press, kl1_rep );
+		SuperDebounce(&k2, &PIND, KL2, 20, 500, kl2_press, kl2_rep );
+
+		if(Ir_key_press_flag) {
+
+			if(!address && 1==command) led1_stop = 1;
+			if(!address && 2==command) led1_stop = 0;
+
+			if(!address && 4==command) led2_stop = 1;
+			if(!address && 5==command) led2_stop = 0;
+
+			lcd_locate(1, 9);
+			lcd_str("rc5: ");
+			lcd_int(command);
+			lcd_str("  ");
+
+			Ir_key_press_flag=0;
+			command=0xff;
+			address=0xff;
+		}
+
+		if(!Timer2) {
+			Timer2=led1_speed;
+			if(led1_stop) LED1_OFF;
+			else LED1_TOG;
+		}
+
+		if(!Timer3) {
+			Timer3=led2_speed;
+			if(led2_stop) LED2_OFF;
+			else LED2_TOG;
+		}
+
+		if(!Timer4) {
+			Timer4=75;
+			lcd_locate(0,0);
+			lcd_str("cnt:");
+			lcd_int(licznik1++);
+			lcd_str(" ");
+		}
+
+		if ( int0_flag ) {
+			//odczyt 4 bajtów do bufora od adresu 0x01 z pamiêci RAM naszego RTC
+			TWI_read_buf( PCF8583_ADDR, 0x01, 4, bufor );
+
+			sekundy = bcd2dec( bufor[ss] );
+			minuty = bcd2dec( bufor[mm] );
+			godziny = bcd2dec( bufor[hh] );
+
+			cy1 = bufor[mm]>>4;
+			cy2 = bufor[mm]&0x0f;
+			cy3 = bufor[ss]>>4;
+			cy4 = bufor[ss]&0x0f;
+
+			// wyœwietlenie czasu na LCD
+			lcd_locate(0,8);
+			if( godziny < 10 ) lcd_str("0");
+			lcd_int(godziny);
+			lcd_str(":");
+			if( minuty < 10 ) lcd_str("0");
+			lcd_int(minuty);
+			lcd_str(":");
+			if( sekundy < 10 ) lcd_str("0");
+			lcd_int(sekundy);
+
+			if(!tcl) DS18X20_start_meas( DS18X20_POWER_EXTERN, NULL );
+
+			if(tcl) {
+				if( DS18X20_OK == DS18X20_read_meas(gSensorIDs[0], &subzero, &cel, &cel_fract_bits) ) display_temp(0);
+			}
+
+			if(++tcl>1) tcl=0;
+
+			int0_flag=0;
+		}
+
+	}
+}
+
+
+/* wyœwietlanie temperatury na pozycji X w drugiej linii LCD */
+void display_temp(uint8_t x) {
+	lcd_locate(1,x);
+	if(subzero) lcd_str("-");	/* jeœli subzero==1 wyœwietla znak minus (temp. ujemna) */
+	else lcd_str(" ");	/* jeœli subzero==0 wyœwietl spacjê zamiast znaku minus (temp. dodatnia) */
+	lcd_int(cel);	/* wyœwietl dziesiêtne czêœci temperatury  */
+	lcd_str(".");	/* wyœwietl kropkê */
+	lcd_int(cel_fract_bits); /* wyœwietl dziesiêtne czêœci stopnia */
+	lcd_str("\x80""C "); /* wyœwietl znak jednostek (C - stopnie Celsiusza) */
+}
+
+
+/************** funkcja SuperDebounce do obs³ugi pojedynczych klawiszy ***************
+ * 							AUTOR: Miros³aw Kardaœ
+ * ZALETY:
+ * 		- nie wprowadza najmniejszego spowalnienia
+ * 		- posiada funkcjê REPEAT (powtarzanie akcji dla d³u¿ej wciœniêtego przycisku)
+ * 		- mo¿na przydzieliæ ró¿ne akcje dla trybu REPEAT i pojedynczego klikniêcia
+ * 		- mo¿na przydzieliæ tylko jedn¹ akcjê wtedy w miejsce drugiej przekazujemy 0 (NULL)
+ *
+ * Wymagania:
+ * 	Timer programowy utworzony w oparciu o Timer sprzêtowy (przerwanie 100Hz)
+ *
+ * 	Parametry wejœciowe:
+ * 	*key_state - wskaŸnik na zmienn¹ w pamiêci RAM (1 bajt)
+ *  *KPIN - nazwa PINx portu na którym umieszczony jest klawisz, np: PINB
+ *  key_mask - maska klawisza np: (1<<PB3)
+ *  rep_time - czas powtarzania funkcji rep_proc w trybie REPEAT
+ *  rep_wait - czas oczekiwania do przejœcia do trybu REPEAT
+ *  push_proc - wskaŸnik do w³asnej funkcji wywo³ywanej raz po zwolenieniu przycisku
+ *  rep_proc - wskaŸnik do w³asnej funkcji wykonywanej w trybie REPEAT
+ **************************************************************************************/
+void SuperDebounce(uint8_t * key_state, volatile uint8_t *KPIN,
+		uint8_t key_mask, uint16_t rep_time, uint16_t rep_wait,
+		void (*push_proc)(void), void (*rep_proc)(void) ) {
+
+	enum {idle, debounce, go_rep, wait_rep, rep};
+
+	if(!rep_time) rep_time=20;
+	if(!rep_wait) rep_wait=150;
+
+	uint8_t key_press = !(*KPIN & key_mask);
+
+	if( key_press && !*key_state ) {
+		*key_state = debounce;
+		Timer1 = 15;
+	} else
+	if( *key_state  ) {
+
+		if( key_press && debounce==*key_state && !Timer1 ) {
+			*key_state = 2;
+			Timer1=5;
+		} else
+		if( !key_press && *key_state>1 && *key_state<4 ) {
+			if(push_proc) push_proc();						/* KEY_UP */
+			*key_state=idle;
+		} else
+		if( key_press && go_rep==*key_state && !Timer1 ) {
+			*key_state = wait_rep;
+			Timer1=rep_wait;
+		} else
+		if( key_press && wait_rep==*key_state && !Timer1 ) {
+			*key_state = rep;
+		} else
+		if( key_press && rep==*key_state && !Timer1 ) {
+			Timer1 = rep_time;
+			if(rep_proc) rep_proc();						/* KEY_REP */
+		}
+	}
+	if( *key_state>=3 && !key_press ) *key_state = idle;
+}
+
+
+
+ISR(TIMER2_COMP_vect)
+{
+	uint16_t n;
+
+	n = Timer1;		/* 100Hz Timer1 */
+	if (n) Timer1 = --n;
+	n = Timer2;		/* 100Hz Timer2 */
+	if (n) Timer2 = --n;
+	n = Timer3;		/* 100Hz Timer3 */
+	if (n) Timer3 = --n;
+	n = Timer4;		/* 100Hz Timer4 */
+	if (n) Timer4 = --n;
+}
+
+
+// procedura obs³ugi przerwania INT 0
+ISR( INT0_vect ) {
+	int0_flag = 1;
+}
+
+// konwersja liczby dziesiêtnej na BCD
+uint8_t dec2bcd(uint8_t dec) {
+return ((dec / 10)<<4) | (dec % 10);
+}
+
+// konwersja liczby BCD na dziesiêtn¹
+uint8_t bcd2dec(uint8_t bcd) {
+    return ((((bcd) >> 4) & 0x0F) * 10) + ((bcd) & 0x0F);
+}

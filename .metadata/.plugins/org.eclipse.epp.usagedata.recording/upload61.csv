@@ -1,0 +1,22 @@
+what,kind,bundleId,bundleVersion,description,time
+ws,sysinfo,,,"win32",1269697022290
+locale,sysinfo,,,"pl_PL",1269697022290
+processors,sysinfo,,,"1",1269697022290
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1269697022290
+java.runtime.version,sysinfo,,,"1.6.0_18-b07",1269697022290
+java.specification.name,sysinfo,,,"Java Platform API Specification",1269697022290
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697022290
+java.specification.version,sysinfo,,,"1.6",1269697022290
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697022290
+java.version,sysinfo,,,"1.6.0_18",1269697022290
+java.vm.info,sysinfo,,,"mixed mode, sharing",1269697022290
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1269697022290
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1269697022290
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697022290
+java.vm.specification.version,sysinfo,,,"1.0",1269697022290
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697022290
+java.vm.version,sysinfo,,,"16.0-b13",1269697022290
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269697027478
+stopped,bundle,org.eclipse.cdt.debug.mi.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.ui",1269697027619
+stopped,bundle,org.eclipse.cdt.debug.mi.core,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.core",1269697027619
+stopped,bundle,org.eclipse.cdt.dsf.gdb.ui,2.0.0.200909110608,"org.eclipse.cdt.dsf.gdb.ui",1269697027619

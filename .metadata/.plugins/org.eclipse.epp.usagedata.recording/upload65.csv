@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+ws,sysinfo,,,"win32",1269697203337
+locale,sysinfo,,,"pl_PL",1269697203337
+processors,sysinfo,,,"1",1269697203337
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1269697203337
+java.runtime.version,sysinfo,,,"1.6.0_18-b07",1269697203337
+java.specification.name,sysinfo,,,"Java Platform API Specification",1269697203337
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697203337
+java.specification.version,sysinfo,,,"1.6",1269697203337
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697203337
+java.version,sysinfo,,,"1.6.0_18",1269697203337
+java.vm.info,sysinfo,,,"mixed mode, sharing",1269697203337
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1269697203337
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1269697203337
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697203337
+java.vm.specification.version,sysinfo,,,"1.0",1269697203337
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1269697203337
+java.vm.version,sysinfo,,,"16.0-b13",1269697203337
+started,bundle,org.eclipse.cdt.managedbuilder.ui,5.1.0.200909110608,"org.eclipse.cdt.managedbuilder.ui",1269697207712
+started,bundle,org.eclipse.cdt.managedbuilder.core,6.0.0.200909110608,"org.eclipse.cdt.managedbuilder.core",1269697208009
+started,bundle,org.eclipse.cdt.managedbuilder.gnu.ui,5.0.100.200909110608,"org.eclipse.cdt.managedbuilder.gnu.ui",1269697208103
+started,bundle,de.innot.avreclipse.core,2.3.1.20081204PRD,"de.innot.avreclipse.core",1269697208462
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269697209040
+started,bundle,org.eclipse.core.variables,3.2.200.v20090521,"org.eclipse.core.variables",1269697236915
+started,bundle,org.eclipse.cdt.make.core,6.0.0.200909110608,"org.eclipse.cdt.make.core",1269697237040
+started,bundle,org.eclipse.debug.core,3.5.0.v20090526-1600,"org.eclipse.debug.core",1269697237306

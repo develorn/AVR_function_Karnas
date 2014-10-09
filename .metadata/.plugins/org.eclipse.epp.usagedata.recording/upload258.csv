@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1270060107265
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1270060107265
+java.vm.specification.version,sysinfo,,,"1.0",1270060107265
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1270060107265
+java.vm.version,sysinfo,,,"16.0-b13",1270060107265
+started,bundle,org.eclipse.mylyn.commons.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.commons.ui",1270060107890
+started,bundle,org.eclipse.team.cvs.ui,3.3.201.R35x_v20090826-0905,"org.eclipse.team.cvs.ui",1270060108187
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.bugzilla.core",1270060108500
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.bugzilla.ui",1270060108890
+started,bundle,org.eclipse.mylyn.context.core,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.context.core",1270060109312
+started,bundle,org.eclipse.mylyn.context.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.context.ui",1270060109421
+started,bundle,org.eclipse.mylyn.tasks.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.tasks.ui",1270060109828
+started,bundle,org.eclipse.mylyn.team.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.team.ui",1270060109906
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1270060110031
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1270060110281
+started,bundle,org.eclipse.mylyn.monitor.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.monitor.ui",1270060110421
+started,bundle,org.eclipse.cdt.managedbuilder.ui,5.1.0.200909110608,"org.eclipse.cdt.managedbuilder.ui",1270060110875
+started,bundle,org.eclipse.cdt.managedbuilder.gnu.ui,5.0.100.200909110608,"org.eclipse.cdt.managedbuilder.gnu.ui",1270060111093
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1270060112343
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1270060129343
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1270060133453
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1270060135546
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1270060148546
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.properties",1270060148593
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1270060170718

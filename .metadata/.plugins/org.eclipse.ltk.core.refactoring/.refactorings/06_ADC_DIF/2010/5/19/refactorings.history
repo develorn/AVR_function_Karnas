@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;06_ADC_DIF/main1.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;main1.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main1.c" name="main.c" stamp="1273791200293" updateReferences="true"/>
+</session>

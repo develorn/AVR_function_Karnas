@@ -1,0 +1,54 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-10-14
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <string.h>
+
+volatile uint8_t a;
+
+volatile char wynikGSM[90]="abc";
+
+
+void usart_transmit2(char data) // TRANSMISJA ZNAKU DLA PD0->RXD  PD1->TXD DEBUG KOMPUTER
+{
+while (!(UCSRA & (1<<UDRE)));  // sprawdzamy czy flaga UDRE0 w rejestrze UCSR0A ma wartosc 1, czyli bufor nadawania jest pusty
+UDR=data;                          //  UCSR0A & (1<<UDRE0)  Maska pozwalajaca nam wykryc 1 we fladze UDRE0
+}
+
+
+void wyslij(char *data0)
+{
+int j;
+int x=strlen(data0);
+    for(j=0;j<x;j++)
+    {
+    usart_transmit(data0[j]);
+    }
+}
+
+
+int main(void) {
+
+	uint8_t b=0, c=1;
+
+	while(1) {
+		b=c+a;
+		c++;
+		if( b>16 ) {
+			b=0;
+			PORTB = b;
+			a=2;
+			PORTA = a;
+		}
+	}
+
+}
+
+
+ISR(INT0_vect) {
+	a++;
+}

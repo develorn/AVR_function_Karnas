@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="LexicalSortingAction.sort"/>
+	<item value="Default C source template" key="LastUsedSourceTemplate"/>
+	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item value="631" key="size.width"/>
+		<item value="180" key="size.height"/>
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
+		<item value="502" key="DIALOG_WIDTH"/>
+		<item value="176" key="DIALOG_Y_ORIGIN"/>
+		<item value="166" key="DIALOG_X_ORIGIN"/>
+		<item value="264" key="DIALOG_HEIGHT"/>
+		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansion">
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+</section>

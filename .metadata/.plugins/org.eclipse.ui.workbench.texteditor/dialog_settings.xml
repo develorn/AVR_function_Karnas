@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="82" key="DIALOG_Y_ORIGIN"/>
+		<item value="1213" key="DIALOG_X_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="wrap"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="SMOSI" key="selection"/>
+		<list key="findhistory">
+			<item value="SMOSI"/>
+			<item value="LED_ANODY"/>
+			<item value="SendSpi"/>
+			<item value="register"/>
+			<item value="ipaddr[i]"/>
+			<item value="eth_type_is_ip_and_my_ip"/>
+			<item value="0x54"/>
+			<item value="ipaddr"/>
+		</list>
+		<list key="replacehistory">
+			<item value="ANODY_PORT"/>
+			<item value="ms2_cnt"/>
+		</list>
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.preferences.CTemplatePreferencePage$CEditTemplateDialog_dialogBounds">
+		<item value="510" key="DIALOG_WIDTH"/>
+		<item value="93" key="DIALOG_Y_ORIGIN"/>
+		<item value="103" key="DIALOG_X_ORIGIN"/>
+		<item value="295" key="DIALOG_HEIGHT"/>
+		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="268" key="DIALOG_Y_ORIGIN"/>
+		<item value="317" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

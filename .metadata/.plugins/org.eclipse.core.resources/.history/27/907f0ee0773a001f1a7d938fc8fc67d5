@@ -1,0 +1,88 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-03-28
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+#define SEG_A (1<<0)
+#define SEG_B (1<<1)
+#define SEG_C (1<<2)
+#define SEG_D (1<<3)
+#define SEG_E (1<<4)
+#define SEG_F (1<<5)
+#define SEG_G (1<<6)
+#define SEG_DP (1<<7)
+
+uint8_t cyfry[15] PROGMEM = {
+		~(SEG_A|SEG_B|SEG_C|SEG_D|SEG_E|SEG_F),			// 0
+		~(SEG_B|SEG_C),									// 1
+		~(SEG_A|SEG_B|SEG_D|SEG_E|SEG_G),				// 2
+		~(SEG_A|SEG_B|SEG_C|SEG_D|SEG_G),				// 3
+		~(SEG_B|SEG_C|SEG_F|SEG_G),						// 4
+		~(SEG_A|SEG_C|SEG_D|SEG_F|SEG_G),				// 5
+		~(SEG_A|SEG_C|SEG_D|SEG_E|SEG_F|SEG_G),			// 6
+		~(SEG_A|SEG_B|SEG_C|SEG_F),						// 7
+		~(SEG_A|SEG_B|SEG_C|SEG_D|SEG_E|SEG_F|SEG_G),	// 8
+		~(SEG_A|SEG_B|SEG_C|SEG_D|SEG_F|SEG_G)			// 9
+};
+
+// definicje wyœwietlacza LED
+#define LED_DATA PORTC
+#define ANODY_PORT PORTA
+#define CA1 (1<<PA0)
+#define CA2 (1<<PA1)
+#define CA3 (1<<PA2)
+#define CA4 (1<<PA3)
+
+// zmienne globalne przechowuj¹ce cyfry wyœwietlacza
+volatile uint8_t c1;
+volatile uint8_t c2;
+volatile uint8_t c3;
+volatile uint8_t c4;
+
+int main(void)
+{
+	//********* inicjalizacja
+	//ustawienia portów wyœwietlaczy LED
+	DDRC = 0xFF;					// ca³y port C jako wyjœcie
+	DDRA |= CA1|CA2|CA3|CA4;		// piny anod jako wyjœcia
+	LED_DATA = 0xFF;				// wygaszenie wszystkich katod
+	ANODY_PORT |= CA1|CA2|CA3|CA4;	// wy³¹czenie wszystkich anod
+
+	// Timer2 ustawienia przerwania obs³ugi multipleksowania LED
+	TCCR2 |= (1<<WGM21);			// tryb CTC
+	TCCR2 |= (1<<CS22)|(1<<CS21);	// presklaer = 256
+	OCR2 = 255;						// przerwanie co 200Hz
+	TIMSK |= (1<<OCIE2);			// zezwolenie na przerwania CompareMatch
+
+	c1=6;
+	c2=1;
+	c3=8;
+	c4=9;
+
+	sei();				// w³¹czenie przerwañ
+
+	//**********************  pêtla g³ówna
+	while(1);
+
+}
+
+// ******************* procedura obs³ugi przerwania CompareMatch - Timer2
+ISR(TIMER2_COMP_vect)
+{
+	static uint8_t licznik=1;
+
+	ANODY_PORT = (ANODY_PORT & 0xF0) | ~licznik;
+
+	if(licznik==1) 		LED_DATA = pgm_read_byte( &cyfry[c1] );
+	else if(licznik==2) LED_DATA = pgm_read_byte( &cyfry[c2] );
+	else if(licznik==4) LED_DATA = pgm_read_byte( &cyfry[c3] );
+	else if(licznik==8) LED_DATA = pgm_read_byte( &cyfry[c4] );
+
+	licznik<<=1;
+	if(licznik>8) licznik=1;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;suart.h&apos; to &apos;SW_RS_ELM_CHAN&apos;" description="Move &apos;suart.h&apos; to &apos;SW_RS_ELM_CHAN&apos;" destination="SW_RS_ELM_CHAN" element1="suart.h" element2="suart.S" element3="test2.c" element4="test2.png" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="4" stamp="1273996884133" updateReferences="true"/>
+</session>

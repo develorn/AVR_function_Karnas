@@ -1,0 +1,574 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_mulsi3.o)
+                              FAT32.o (__mulsi3)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodsi4.o)
+                              FAT32.o (__udivmodsi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+                              FAT32.o (__do_copy_data)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+                              FAT32.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+rtc_register        0x7               FAT32.o
+appendFileLocation  0x4               FAT32.o
+dateFAT             0x2               FAT32.o
+firstDataSector     0x4               FAT32.o
+fileSize            0x4               FAT32.o
+bytesPerSector      0x2               FAT32.o
+totalClusters       0x4               FAT32.o
+rootCluster         0x4               FAT32.o
+timeFAT             0x2               FAT32.o
+startBlock          0x4               FAT32.o
+buffer              0x200             FAT32.o
+sectorPerCluster    0x2               FAT32.o
+unusedSectors       0x4               FAT32.o
+SDHC_flag           0x1               FAT32.o
+totalBlocks         0x4               FAT32.o
+reservedSectorCount
+                    0x2               FAT32.o
+time                0xa               RTC_routines.o
+appendStartCluster  0x4               FAT32.o
+cardType            0x1               FAT32.o
+day                 0x1               RTC_routines.o
+date                0xc               RTC_routines.o
+freeClusterCountUpdated
+                    0x1               FAT32.o
+appendFileSector    0x4               FAT32.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+LOAD FAT32.o
+LOAD SD_main.o
+LOAD SD_routines.o
+LOAD SPI_routines.o
+LOAD UART_routines.o
+LOAD RTC_routines.o
+LOAD i2c_routines.o
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x3206
+ *(.vectors)
+ .vectors       0x00000000       0x54 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000054      0x16b FAT32.o
+ .progmem.data  0x000001bf      0x385 SD_main.o
+ .progmem.data  0x00000544      0x139 RTC_routines.o
+                0x0000067e                . = ALIGN (0x2)
+ *fill*         0x0000067d        0x1 00
+                0x0000067e                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000067e        0x0 linker stubs
+ *(.trampolines*)
+                0x0000067e                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000067e                __ctors_start = .
+ *(.ctors)
+                0x0000067e                __ctors_end = .
+                0x0000067e                __dtors_start = .
+ *(.dtors)
+                0x0000067e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000067e        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+                0x0000067e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000067e        0xc c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000068a       0x16 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+                0x0000068a                __do_copy_data
+ .init4         0x000006a0       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+                0x000006a0                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000006b0        0x8 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x000006b8        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+                0x000006b8                __vector_1
+                0x000006b8                __vector_12
+                0x000006b8                __bad_interrupt
+                0x000006b8                __vector_6
+                0x000006b8                __vector_3
+                0x000006b8                __vector_11
+                0x000006b8                __vector_13
+                0x000006b8                __vector_17
+                0x000006b8                __vector_19
+                0x000006b8                __vector_7
+                0x000006b8                __vector_5
+                0x000006b8                __vector_4
+                0x000006b8                __vector_9
+                0x000006b8                __vector_2
+                0x000006b8                __vector_15
+                0x000006b8                __vector_8
+                0x000006b8                __vector_14
+                0x000006b8                __vector_10
+                0x000006b8                __vector_16
+                0x000006b8                __vector_18
+                0x000006b8                __vector_20
+ .text          0x000006bc     0x1780 FAT32.o
+                0x00000ff4                getSetNextCluster
+                0x000014e4                readFile
+                0x00000bc8                memoryStatistics
+                0x000007d4                convertFileName
+                0x000009f8                getSetFreeCluster
+                0x000014c8                deleteFile
+                0x000008e4                searchNextFreeCluster
+                0x00001686                writeFile
+                0x00000b06                freeMemoryUpdate
+                0x00000e28                getBootSectorData
+                0x000010ee                findFiles
+                0x000006bc                getFirstSector
+                0x00000706                displayMemory
+ .text          0x00001e3c      0x6c2 SD_main.o
+                0x00001e3c                port_init
+                0x00001e54                init_devices
+                0x00001e7c                main
+ .text          0x000024fe      0x348 SD_routines.o
+                0x000025d6                SD_erase
+                0x0000263c                SD_writeSingleBlock
+                0x000024fe                SD_sendCommand
+                0x000026d8                SD_readSingleBlock
+                0x0000273a                SD_init
+ .text          0x00002846       0x1e SPI_routines.o
+                0x0000284e                SPI_transmit
+                0x00002846                spi_init
+                0x00002858                SPI_receive
+ .text          0x00002864       0xe2 UART_routines.o
+                0x00002882                transmitByte
+                0x0000291e                transmitString_F
+                0x0000288a                transmitHex
+                0x00002864                uart0_init
+                0x00002932                transmitString
+                0x00002878                receiveByte
+ .text          0x00002946      0x782 RTC_routines.o
+                0x0000300e                RTC_getTime
+                0x00002946                RTC_updateRegisters
+                0x00002a64                RTC_writeDate
+                0x0000309c                RTC_displayTime
+                0x00002ca2                RTC_updateTime
+                0x00002a04                RTC_displayDay
+                0x00002ac0                RTC_updateDate
+                0x00002f50                RTC_getDate
+                0x00002fde                RTC_displayDate
+                0x00002c52                RTC_writeTime
+                0x00002e58                getDateTime_FAT
+                0x00002dc2                RTC_setStartAddress
+                0x00002dee                RTC_read
+ .text          0x000030c8       0xb8 i2c_routines.o
+                0x0000312a                i2c_sendData
+                0x000030c8                i2c_start
+                0x000030fc                i2c_sendAddress
+                0x000030e2                i2c_repeatStart
+                0x0000317a                i2c_stop
+                0x00003146                i2c_receiveData_ACK
+                0x00003160                i2c_receiveData_NACK
+ .text          0x00003180        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00003180        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00003180        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .text          0x00003180        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x00003180        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+                0x00003180                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00003180       0x3e c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_mulsi3.o)
+                0x00003180                __mulsi3
+ .text.libgcc   0x000031be       0x44 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x000031be                __udivmodsi4
+ .text.libgcc   0x00003202        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00003202        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003202        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+                0x00003202                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00003202        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+                0x00003202                exit
+                0x00003202                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00003202        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00003206                _etext = .
+
+.data           0x00800060       0x20 load address 0x00003206
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060       0x14 FAT32.o
+ .data          0x00800074        0x0 SD_main.o
+ .data          0x00800074        0x0 SD_routines.o
+ .data          0x00800074        0x0 SPI_routines.o
+ .data          0x00800074        0xb UART_routines.o
+ .data          0x0080007f        0x0 RTC_routines.o
+ .data          0x0080007f        0x0 i2c_routines.o
+ .data          0x0080007f        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_mulsi3.o)
+ .data          0x0080007f        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x0080007f        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .data          0x0080007f        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .data          0x0080007f        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800080                . = ALIGN (0x2)
+ *fill*         0x0080007f        0x1 00
+                0x00800080                _edata = .
+                0x00800080                PROVIDE (__data_end, .)
+
+.bss            0x00800080      0x253
+                0x00800080                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800080        0x0 FAT32.o
+ .bss           0x00800080        0x0 SD_main.o
+ .bss           0x00800080        0x0 SD_routines.o
+ .bss           0x00800080        0x0 SPI_routines.o
+ .bss           0x00800080        0x0 UART_routines.o
+ .bss           0x00800080        0x0 RTC_routines.o
+ .bss           0x00800080        0x0 i2c_routines.o
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800080        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800080      0x23c FAT32.o
+                0x00800080                rtc_register
+                0x00800087                appendFileLocation
+                0x0080008b                dateFAT
+                0x0080008d                firstDataSector
+                0x00800091                fileSize
+                0x00800095                bytesPerSector
+                0x00800097                totalClusters
+                0x0080009b                rootCluster
+                0x0080009f                timeFAT
+                0x008000a1                startBlock
+                0x008000a5                buffer
+                0x008002a5                sectorPerCluster
+                0x008002a7                unusedSectors
+                0x008002ab                SDHC_flag
+                0x008002ac                totalBlocks
+                0x008002b0                reservedSectorCount
+                0x008002b2                appendStartCluster
+                0x008002b6                cardType
+                0x008002b7                freeClusterCountUpdated
+                0x008002b8                appendFileSector
+ COMMON         0x008002bc       0x17 RTC_routines.o
+                0x008002bc                time
+                0x008002c6                day
+                0x008002c7                date
+                0x008002d3                PROVIDE (__bss_end, .)
+                0x00003206                __data_load_start = LOADADDR (.data)
+                0x00003226                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008002d3        0x0
+                0x008002d3                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008002d3                PROVIDE (__noinit_end, .)
+                0x008002d3                _end = .
+                0x008002d3                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xe0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 FAT32.o
+ .debug_aranges
+                0x00000020       0x20 SD_main.o
+ .debug_aranges
+                0x00000040       0x20 SD_routines.o
+ .debug_aranges
+                0x00000060       0x20 SPI_routines.o
+ .debug_aranges
+                0x00000080       0x20 UART_routines.o
+ .debug_aranges
+                0x000000a0       0x20 RTC_routines.o
+ .debug_aranges
+                0x000000c0       0x20 i2c_routines.o
+
+.debug_pubnames
+                0x00000000      0x755
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0x26b FAT32.o
+ .debug_pubnames
+                0x0000026b      0x19c SD_main.o
+ .debug_pubnames
+                0x00000407       0xb2 SD_routines.o
+ .debug_pubnames
+                0x000004b9       0x40 SPI_routines.o
+ .debug_pubnames
+                0x000004f9       0x7a UART_routines.o
+ .debug_pubnames
+                0x00000573      0x14b RTC_routines.o
+ .debug_pubnames
+                0x000006be       0x97 i2c_routines.o
+
+.debug_info     0x00000000     0x2461
+ *(.debug_info)
+ .debug_info    0x00000000      0xfbc FAT32.o
+ .debug_info    0x00000fbc      0x772 SD_main.o
+ .debug_info    0x0000172e      0x289 SD_routines.o
+ .debug_info    0x000019b7       0xc6 SPI_routines.o
+ .debug_info    0x00001a7d      0x287 UART_routines.o
+ .debug_info    0x00001d04      0x5fc RTC_routines.o
+ .debug_info    0x00002300      0x161 i2c_routines.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x83e
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1fd FAT32.o
+ .debug_abbrev  0x000001fd      0x19b SD_main.o
+ .debug_abbrev  0x00000398       0xbf SD_routines.o
+ .debug_abbrev  0x00000457       0x8d SPI_routines.o
+ .debug_abbrev  0x000004e4      0x182 UART_routines.o
+ .debug_abbrev  0x00000666      0x14b RTC_routines.o
+ .debug_abbrev  0x000007b1       0x8d i2c_routines.o
+
+.debug_line     0x00000000     0x216c
+ *(.debug_line)
+ .debug_line    0x00000000      0xb1f FAT32.o
+ .debug_line    0x00000b1f      0x671 SD_main.o
+ .debug_line    0x00001190      0x3ac SD_routines.o
+ .debug_line    0x0000153c       0xc6 SPI_routines.o
+ .debug_line    0x00001602      0x1f6 UART_routines.o
+ .debug_line    0x000017f8      0x7ee RTC_routines.o
+ .debug_line    0x00001fe6      0x186 i2c_routines.o
+
+.debug_frame    0x00000000      0x390
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xe0 FAT32.o
+ .debug_frame   0x000000e0       0x40 SD_main.o
+ .debug_frame   0x00000120       0x60 SD_routines.o
+ .debug_frame   0x00000180       0x40 SPI_routines.o
+ .debug_frame   0x000001c0       0x70 UART_routines.o
+ .debug_frame   0x00000230       0xe0 RTC_routines.o
+ .debug_frame   0x00000310       0x80 i2c_routines.o
+
+.debug_str      0x00000000      0xa08
+ *(.debug_str)
+ .debug_str     0x00000000      0x6c6 FAT32.o
+                                0x727 (size before relaxing)
+ .debug_str     0x000006c6       0x80 SD_main.o
+                                0x275 (size before relaxing)
+ .debug_str     0x00000746       0x6c SD_routines.o
+                                0x174 (size before relaxing)
+ .debug_str     0x000007b2       0x34 SPI_routines.o
+                                0x103 (size before relaxing)
+ .debug_str     0x000007e6       0x9d UART_routines.o
+                                0x187 (size before relaxing)
+ .debug_str     0x00000883       0xfb RTC_routines.o
+                                0x1f7 (size before relaxing)
+ .debug_str     0x0000097e       0x8a i2c_routines.o
+                                0x159 (size before relaxing)
+
+.debug_loc      0x00000000     0x1701
+ *(.debug_loc)
+ .debug_loc     0x00000000      0xfa6 FAT32.o
+ .debug_loc     0x00000fa6      0x1ea SD_main.o
+ .debug_loc     0x00001190      0x2e7 SD_routines.o
+ .debug_loc     0x00001477       0x26 SPI_routines.o
+ .debug_loc     0x0000149d      0x15c UART_routines.o
+ .debug_loc     0x000015f9       0x78 RTC_routines.o
+ .debug_loc     0x00001671       0x90 i2c_routines.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(SD_Card.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000       0x48
+ .debug_ranges  0x00000000       0x48 UART_routines.o

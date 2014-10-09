@@ -1,0 +1,32 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-10-14
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+uint8_t a;
+
+int main(void) {
+
+	uint8_t b=0, c=4;
+
+	while(1) {
+		b=c+a;
+		c++;
+		if( c>5 && b>3) {
+			b=0;
+			PORTB = b;
+			a=2;
+			PORTA = a;
+		}
+	}
+
+}
+
+
+ISR(INT0_vect) {
+	a++;
+}

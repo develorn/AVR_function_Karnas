@@ -1,0 +1,11 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705301078
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705303015
+executed,command,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1269705303046
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.delete",1269705303046
+started,bundle,org.eclipse.cdt.managedbuilder.ui,5.1.0.200909110608,"org.eclipse.cdt.managedbuilder.ui",1269705305609
+started,bundle,org.eclipse.cdt.managedbuilder.gnu.ui,5.0.100.200909110608,"org.eclipse.cdt.managedbuilder.gnu.ui",1269705305640
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705306093
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705315750
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705319218
+stopped,bundle,org.eclipse.cdt.debug.mi.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.ui",1269705319515

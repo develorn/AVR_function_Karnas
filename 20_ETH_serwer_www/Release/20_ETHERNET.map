@@ -1,0 +1,447 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./basic_web_server_example.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              ./basic_web_server_example.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncmp.o)
+                              ./basic_web_server_example.o (strncmp)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                              ./ip_arp_udp_tcp.o (itoa)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (strrev)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (__udivmodhi4)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+LOAD ./basic_web_server_example.o
+LOAD ./enc28j60.o
+LOAD ./ip_arp_udp_tcp.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x1ae0
+ *(.vectors)
+ .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000054      0x188 ./basic_web_server_example.o
+ .progmem.data  0x000001dc      0x102 ./ip_arp_udp_tcp.o
+                0x000001e4                iphdr
+                0x000001dc                arpreqhdr
+                0x000002de                . = ALIGN (0x2)
+                0x000002de                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000002de        0x0 linker stubs
+ *(.trampolines*)
+                0x000002de                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000002de                __ctors_start = .
+ *(.ctors)
+                0x000002de                __ctors_end = .
+                0x000002de                __dtors_start = .
+ *(.dtors)
+                0x000002de                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000002de        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x000002de                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000002de        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000002ea       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x000002ea                __do_copy_data
+ .init4         0x00000300       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000300                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000310        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x00000318        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000318                __vector_1
+                0x00000318                __vector_12
+                0x00000318                __bad_interrupt
+                0x00000318                __vector_6
+                0x00000318                __vector_3
+                0x00000318                __vector_11
+                0x00000318                __vector_13
+                0x00000318                __vector_17
+                0x00000318                __vector_19
+                0x00000318                __vector_7
+                0x00000318                __vector_5
+                0x00000318                __vector_4
+                0x00000318                __vector_9
+                0x00000318                __vector_2
+                0x00000318                __vector_15
+                0x00000318                __vector_8
+                0x00000318                __vector_14
+                0x00000318                __vector_10
+                0x00000318                __vector_16
+                0x00000318                __vector_18
+                0x00000318                __vector_20
+ .text          0x0000031c      0x128 ./basic_web_server_example.o
+                0x0000031c                http200ok
+                0x0000032e                print_webpage
+                0x00000392                main
+ .text          0x00000444      0x4a8 ./enc28j60.o
+                0x0000047e                enc28j60ReadBuffer
+                0x000004d8                enc28j60SetBank
+                0x000005be                enc28j60Init
+                0x00000468                enc28j60WriteOp
+                0x00000550                enc28j60PhyReadH
+                0x00000520                enc28j60Read
+                0x000004b0                enc28j60WriteBuffer
+                0x00000582                enc28j60PhyWrite
+                0x00000714                enc28j60getrev
+                0x000007c4                enc28j60PacketReceive
+                0x000007b8                enc28j60hasRxPkt
+                0x00000444                enc28j60ReadOp
+                0x00000722                enc28j60linkup
+                0x00000534                enc28j60Write
+                0x00000734                enc28j60PacketSend
+ .text          0x000008ec     0x114a ./ip_arp_udp_tcp.o
+                0x000009e2                init_ip_arp_udp_tcp
+                0x00000cdc                client_waiting_gw
+                0x00001604                make_udp_reply_from_request
+                0x00000f34                www_client_internal_datafill_callback
+                0x000013f0                send_udp_transmit
+                0x00000dba                client_browse_url
+                0x00000a32                check_ip_message_is_from
+                0x00000bce                fill_tcp_data_p
+                0x0000158a                make_tcp_synack_from_syn
+                0x00000d84                client_tcp_req
+                0x00000a96                eth_type_is_ip_and_my_ip
+                0x00000e4a                www_client_internal_result_callback
+                0x00000af0                fill_ip_hdr_checksum
+                0x0000149a                make_tcp_ack_with_data_noflags
+                0x00000ce8                client_store_gw_mac
+                0x00000bf4                fill_tcp_data_len
+                0x00000e40                register_ping_rec_callback
+                0x00000d3a                client_set_gwip
+                0x00000a5e                eth_type_is_arp_and_my_ip
+                0x0000143a                send_udp
+                0x00001558                www_server_reply
+                0x00000df4                client_http_post
+                0x00000b1e                make_ip
+                0x0000124c                client_syn
+                0x00001698                make_echo_reply_from_request
+                0x00001350                client_arp_whohas
+                0x00000ef2                fill_tcp_data
+                0x00000b40                step_seq
+                0x00000b6a                make_tcphead
+                0x00000d2a                client_gw_arp_refresh
+                0x00000ad6                make_eth
+                0x000016d4                make_arp_answer_from_request
+                0x000008ec                checksum
+                0x00000c32                send_udp_prepare
+                0x000014ea                make_tcp_ack_from_any
+                0x00000d62                client_tcp_set_serverip
+                0x00000c1a                fill_buf_p
+                0x00001724                packetloop_icmp_tcp
+                0x00000b98                get_tcp_data_len
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncmp.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .text          0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00001a36                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001a36        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x00001a36       0x1c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncmp.o)
+                0x00001a36                strncmp
+ .text.avr-libc
+                0x00001a52       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x00001a52                itoa
+ .text.avr-libc
+                0x00001a94       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00001a94                strrev
+ .text.libgcc   0x00001ab4       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00001ab4                __udivmodhi4
+                0x00001adc                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00001adc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001adc                exit
+                0x00001adc                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00001adc        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00001ae0                _etext = .
+
+.data           0x00800060       0x1c load address 0x00001ae0
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060       0x12 ./basic_web_server_example.o
+ .data          0x00800072        0x0 ./enc28j60.o
+ .data          0x00800072        0x9 ./ip_arp_udp_tcp.o
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncmp.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .data          0x0080007b        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080007c                . = ALIGN (0x2)
+ *fill*         0x0080007b        0x1 00
+                0x0080007c                _edata = .
+                0x0080007c                PROVIDE (__data_end, .)
+
+.bss            0x0080007c      0x38c
+                0x0080007c                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080007c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080007c      0x353 ./basic_web_server_example.o
+ .bss           0x008003cf        0x3 ./enc28j60.o
+ .bss           0x008003d2       0x36 ./ip_arp_udp_tcp.o
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strncmp.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .bss           0x00800408        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ *(.bss*)
+ *(COMMON)
+                0x00800408                PROVIDE (__bss_end, .)
+                0x00001ae0                __data_load_start = LOADADDR (.data)
+                0x00001afc                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800408        0x0
+                0x00800408                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800408                PROVIDE (__noinit_end, .)
+                0x00800408                _end = .
+                0x00800408                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(20_ETHERNET.elf elf32-avr)
+LOAD linker stubs

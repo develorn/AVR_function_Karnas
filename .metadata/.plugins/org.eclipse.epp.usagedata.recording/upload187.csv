@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.team.core,3.5.0.I20090527-0620,"org.eclipse.team.core",1269782625881
+started,bundle,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui",1269782625881
+started,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1269782625881
+started,bundle,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.editors",1269782625881
+started,bundle,org.eclipse.ui.forms,3.4.1.v20090714_35x,"org.eclipse.ui.forms",1269782625959
+started,bundle,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.ide",1269782625959
+started,bundle,org.eclipse.ui.navigator,3.4.1.M20090911-1550,"org.eclipse.ui.navigator",1269782625959
+started,bundle,org.eclipse.ui.navigator.resources,3.4.1.M20090826-0800,"org.eclipse.ui.navigator.resources",1269782625959
+started,bundle,org.eclipse.ui.net,1.2.1.r35x_20090812-1200,"org.eclipse.ui.net",1269782625959
+started,bundle,org.eclipse.ui.views,3.4.1.M20090826-0800,"org.eclipse.ui.views",1269782625959
+started,bundle,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"org.eclipse.ui.workbench",1269782625959
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1269782625959
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1269782625975
+started,bundle,de.innot.avreclipse.core,2.3.1.20081204PRD,"de.innot.avreclipse.core",1269782625975
+os,sysinfo,,,"win32",1269782625991
+arch,sysinfo,,,"x86",1269782625991
+ws,sysinfo,,,"win32",1269782625991
+locale,sysinfo,,,"pl_PL",1269782625991
+processors,sysinfo,,,"1",1269782625991
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1269782625991
+java.runtime.version,sysinfo,,,"1.6.0_18-b07",1269782625991
+java.specification.name,sysinfo,,,"Java Platform API Specification",1269782625991
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269782625991
+java.specification.version,sysinfo,,,"1.6",1269782625991
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1269782625991

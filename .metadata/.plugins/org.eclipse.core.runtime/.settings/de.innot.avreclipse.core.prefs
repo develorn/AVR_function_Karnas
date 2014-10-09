@@ -1,0 +1,20 @@
+#Fri May 28 12:57:32 CEST 2010
+avrdudepropertypage/weight_preview_expanded=20
+avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
+avrdude/configs/programmerconfig.1/programmer=usbasp
+avrpaths//systempath/AVRGCC=C\:\\WinAVR-20100110\\bin
+avrdude/configs/programmerconfig.1/port=usb
+avrdudepropertypage/weight_preview_collapsed=50
+avrpaths//systempath/PDFPATH=C\:\\Program Files (x86)\\Atmel\\AVR Tools\\Partdescriptionfiles
+eclipse.preferences.version=1
+avrdude/configs/programmerconfig.1/ppresetline=
+avrdude/configs/programmerconfig.1/ppvccline=
+avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
+avrdudepropertypage/previewexpanded=false
+avrdudepropertypage/weight_top_collapsed=950
+avrdudepropertypage/weight_top_expanded=80
+avrpaths//systempath/AVRINCLUDE=C\:\\WinAVR-20100110\\avr\\include
+avrdude/configs/programmerconfig.1/name=Programator USBASP
+avrdude/configs/programmerconfig.1/baudrate=
+avrpaths//systempath/AVRDUDE=C\:\\WinAVR-20100110\\bin
+avrpaths//systempath/MAKE=C\:\\WinAVR-20100110\\utils\\bin

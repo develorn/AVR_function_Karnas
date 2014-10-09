@@ -1,0 +1,47 @@
+/*
+ * main.c
+ *
+ *  Created on: 2010-10-08
+ *       Autor: Miros³aw Kardaœ
+ */
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "LCD/lcd44780.h"
+
+uint32_t mult32(uint32_t a, uint32_t b) {
+	return (uint32_t)(a*b);
+}
+
+uint32_t mult16(uint16_t a, uint16_t b) {
+	return (uint32_t)(a*b);
+}
+
+uint16_t mult8(uint8_t a, uint8_t b) {
+	return (uint16_t)(a*b);
+}
+
+int main(void) {
+
+	DDRB = 255;
+
+	//DDRA |= (1<<PA7);
+	//PORTA |= (1<<PA7);
+
+	lcd_init();
+	lcd_str("start...");
+
+	if(mult32(123,1765) > 100) PORTB = 255;
+	else PORTB = 0;
+
+	lcd_locate(1,0);
+	lcd_int( mult32(32766,2) );
+
+	while(1) {
+
+	}
+}

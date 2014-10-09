@@ -1,0 +1,2 @@
+1273821131213	Move 'crc8.c' to '1wire'
+1273822149895	Move 'temperatura.c' to '06_ADC_TEMP'

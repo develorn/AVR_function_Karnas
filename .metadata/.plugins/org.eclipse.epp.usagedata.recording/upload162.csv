@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+ws,sysinfo,,,"win32",1269705755500
+locale,sysinfo,,,"pl_PL",1269705755500
+processors,sysinfo,,,"1",1269705755500
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1269705755500
+java.runtime.version,sysinfo,,,"1.6.0_18-b07",1269705755500
+java.specification.name,sysinfo,,,"Java Platform API Specification",1269705755500
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269705755500
+java.specification.version,sysinfo,,,"1.6",1269705755500
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1269705755500
+java.version,sysinfo,,,"1.6.0_18",1269705755500
+java.vm.info,sysinfo,,,"mixed mode, sharing",1269705755500
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1269705755500
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1269705755500
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1269705755500
+java.vm.specification.version,sysinfo,,,"1.0",1269705755500
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1269705755500
+java.vm.version,sysinfo,,,"16.0-b13",1269705755500
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705759625
+started,bundle,de.innot.avreclipse.core,2.3.1.20081204PRD,"de.innot.avreclipse.core",1269705761328
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705782968
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1269705788562
+stopped,bundle,org.eclipse.cdt.debug.mi.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.ui",1269705788703
+stopped,bundle,org.eclipse.cdt.debug.mi.core,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.core",1269705788703
+stopped,bundle,org.eclipse.cdt.dsf.gdb.ui,2.0.0.200909110608,"org.eclipse.cdt.dsf.gdb.ui",1269705788703
+stopped,bundle,org.eclipse.cdt.dsf.ui,2.0.1.200909110608,"org.eclipse.cdt.dsf.ui",1269705788703

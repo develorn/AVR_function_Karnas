@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.editors",1270060106531
+started,bundle,org.eclipse.ui.forms,3.4.1.v20090714_35x,"org.eclipse.ui.forms",1270060106640
+started,bundle,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.ide",1270060106718
+started,bundle,org.eclipse.ui.navigator,3.4.1.M20090911-1550,"org.eclipse.ui.navigator",1270060106812
+started,bundle,org.eclipse.ui.navigator.resources,3.4.1.M20090826-0800,"org.eclipse.ui.navigator.resources",1270060106875
+started,bundle,org.eclipse.ui.net,1.2.1.r35x_20090812-1200,"org.eclipse.ui.net",1270060106906
+started,bundle,org.eclipse.ui.views,3.4.1.M20090826-0800,"org.eclipse.ui.views",1270060106937
+started,bundle,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"org.eclipse.ui.workbench",1270060107015
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1270060107140
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1270060107171
+started,bundle,de.innot.avreclipse.core,2.3.1.20081204PRD,"de.innot.avreclipse.core",1270060107265
+os,sysinfo,,,"win32",1270060107265
+arch,sysinfo,,,"x86",1270060107265
+ws,sysinfo,,,"win32",1270060107265
+locale,sysinfo,,,"pl_PL",1270060107265
+processors,sysinfo,,,"1",1270060107265
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1270060107265
+java.runtime.version,sysinfo,,,"1.6.0_18-b07",1270060107265
+java.specification.name,sysinfo,,,"Java Platform API Specification",1270060107265
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1270060107265
+java.specification.version,sysinfo,,,"1.6",1270060107265
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1270060107265
+java.version,sysinfo,,,"1.6.0_18",1270060107265
+java.vm.info,sysinfo,,,"mixed mode, sharing",1270060107265
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1270060107265
